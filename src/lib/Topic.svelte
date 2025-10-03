@@ -4,9 +4,9 @@
 </script>
 
 <div
-	class="from-bg-gradient-to-r rounded-full bg-black/25 bg-linear-90 from-violet-600 to-indigo-600 px-16 py-4 backdrop-blur-sm"
+	class="rounded-full bg-black/25 bg-linear-90 px-16 py-4 font-friendly text-white shadow-2xl/20 inset-shadow-sm inset-shadow-white/20 backdrop-blur-sm"
 >
-	<strong>{data.label}</strong>
+	<p>{data.label}</p>
 
 	<!-- Target handle (incoming connections) -->
 	<Handle type="target" position={Position.Left} id="in" style="background: #ff6b6b;" />

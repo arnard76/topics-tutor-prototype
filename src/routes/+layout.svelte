@@ -4,4 +4,6 @@
 	let { children } = $props();
 </script>
 
-{@render children?.()}
+<div class="bg-linear-to-r from-bg-1 to-bg-2">
+	{@render children?.()}
+</div>

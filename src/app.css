@@ -10,13 +10,19 @@
 	--color-placeholder: #828282;
 	--color-hint-colour: rgba(0, 0, 0, 0.45);
 
-	--bg-colour-1: #08297e;
-	--bg-colour-2: #051d59;
+	--color-bg-1: #08297e;
+	--color-bg-2: #051d59;
+
+	--font-friendly: 'Jua', sans-serif;
 }
 
 *,
 body {
 	@apply box-border;
+}
+
+body {
+	@apply m-0 p-0;
 }
 
 main {
@@ -39,9 +45,29 @@ h4 {
 	@apply mb-2;
 }
 
-/* p {
-} */
-
+button,
 a {
-	@apply text-primary underline;
+	@apply flex w-min p-4 font-friendly text-2xl text-white no-underline;
+}
+
+/* ICONS IN BUTTONS */
+
+button .iconify,
+a .iconify {
+	@apply translate-x-0 scale-100 transition-all duration-300;
+}
+
+button:hover .iconify,
+a:hover .iconify {
+	@apply scale-105 transition-all duration-300;
+}
+
+button.left:hover .iconify,
+a.left:hover .iconify {
+	@apply translate-x-3.5;
+}
+
+button.right:hover .iconify,
+a.right:hover .iconify {
+	@apply -translate-x-3.5;
 }
