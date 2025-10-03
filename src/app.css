@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-primary: #1483f9;
+	--color-primary-light: #5ca2ed;
+	--color-borderdefault: #096ab5;
+	--color-danger-red: #f21111;
+	--color-success-green: rgb(0, 204, 27);
+	--color-text-main: #222227;
+	--color-placeholder: #828282;
+	--color-hint-colour: rgba(0, 0, 0, 0.45);
+
+	--bg-colour-1: #08297e;
+	--bg-colour-2: #051d59;
+}
+
+*,
+body {
+	@apply box-border;
+}
+
+main {
+	@apply h-full overflow-y-auto p-4;
+}
+
+h1 {
+	@apply mt-8 mb-4 text-8xl font-black;
+}
+
+h2 {
+	@apply my-2 text-6xl font-bold text-hint-colour;
+}
+
+h3 {
+	@apply mb-2 text-lg font-normal;
+}
+
+h4 {
+	@apply mb-2;
+}
+
+/* p {
+} */
+
+a {
+	@apply text-primary underline;
+}
