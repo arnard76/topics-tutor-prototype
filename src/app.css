@@ -47,7 +47,7 @@ h4 {
 
 button,
 a {
-	@apply flex w-min p-4 font-friendly text-2xl text-white no-underline;
+	@apply flex w-min bg-black/15 p-4 font-friendly text-2xl text-white no-underline backdrop-blur-sm;
 }
 
 /* ICONS IN BUTTONS */
