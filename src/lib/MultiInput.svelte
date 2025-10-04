@@ -4,8 +4,8 @@
 	// @ts-ignore
 	import Artyom from 'artyom.js';
 
-	let questionFromKeyboardInput = $state();
-	let textInput = $state<HTMLInputElement>();
+	let { questionFromKeyboardInput = $bindable(''), onEnter, readonly = false } = $props();
+	let textInput = $state<HTMLTextAreaElement>();
 
 	$effect(() => {
 		if (questionFromKeyboardInput === '' && textInput) textInput.blur();
@@ -25,7 +25,7 @@
 	});
 
 	$effect(() => {
-		active ? startListening() : stopListening();
+		// active ? startListening() : stopListening();
 	});
 
 	async function startListening() {
@@ -57,25 +57,34 @@
 
 <svelte:body
 	onkeypresscapture={(e) => {
+		console.log(e.key);
+		if (questionFromKeyboardInput && e.key === 'Enter' && !readonly) {
+			console.log({ questionFromKeyboardInput });
+			onEnter(questionFromKeyboardInput);
+			questionFromKeyboardInput = '';
+		}
+
 		if (questionFromKeyboardInput) return;
 		if (textInput) textInput.focus();
 	}}
 />
 
-<div class="relative m-auto flex w-4/5 justify-center">
-	<input
-		type="text"
-		class="flex h-64 w-full justify-between rounded-b-3xl bg-blue-300 p-4"
+<div class="relative mx-auto mb-12 flex w-4/5 justify-end">
+	<textarea
+		class="flex w-full justify-between bg-blue-300 p-4 transition-all duration-300 {questionFromKeyboardInput
+			? 'min-h-0 rounded-t-[100px] rounded-b-[100px]'
+			: 'min-h-64 rounded-t-3xl rounded-b-[0px]'}"
 		bind:value={questionFromKeyboardInput}
 		bind:this={textInput}
-	/>
+		disabled={readonly}
+	></textarea>
 	{#if !questionFromKeyboardInput}
 		<div
 			transition:slide={{ duration: 350 }}
 			class="absolute inset-x-8 inset-y-4 flex justify-between"
 		>
 			<div>
-				<h2>Questions?</h2>
+				<h2 class="text-hint-colour">Questions?</h2>
 
 				<div>
 					<!-- Suggestions -->
@@ -101,7 +110,7 @@
 	{/if}
 </div>
 
-<p>{error}</p>
+<!-- <p>{error}</p> -->
 
 <style lang="postcss">
 	@reference '../app.css';

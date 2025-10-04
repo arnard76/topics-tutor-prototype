@@ -1,0 +1,14 @@
+<script lang="ts">
+	import type { MessageType } from './message';
+	let { message }: { message: MessageType } = $props();
+
+	let b = $derived(`${message.message}`);
+</script>
+
+<p
+	class="flex rounded-lg px-4 py-1 whitespace-pre-wrap backdrop-blur-2xl {message.from === 'tutor'
+		? 'mr-16 self-start rounded-bl-none bg-blue-400 font-mono'
+		: 'ml-16 self-end rounded-br-none bg-white'}"
+>
+	{message.message}
+</p>

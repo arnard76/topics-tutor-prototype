@@ -1,0 +1,12 @@
+<script lang="ts">
+	import type { MessageType as MessageType } from './message';
+	import Message from './Message.svelte';
+
+	let { messages }: { messages: MessageType[] } = $props();
+</script>
+
+<div class="flex w-full max-w-2/3 flex-col gap-2 self-center overflow-y-auto p-4">
+	{#each messages as message (message.datetime + message.from)}
+		<Message {message} />
+	{/each}
+</div>
