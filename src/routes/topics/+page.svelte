@@ -1,5 +1,5 @@
 <script lang="ts">
-	import TopicMap from '$lib/TopicMap.svelte';
+	import TopicMap from '$lib/topics/TopicMap.svelte';
 	import Icon from '@iconify/svelte';
 </script>
 
