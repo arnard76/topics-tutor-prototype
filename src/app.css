@@ -49,7 +49,7 @@ h4 {
 
 button,
 a {
-	@apply flex w-min bg-black/15 px-4 py-2 font-friendly text-lg text-white no-underline backdrop-blur-sm;
+	@apply flex w-min cursor-pointer bg-black/15 px-4 py-2 font-friendly text-lg text-white no-underline backdrop-blur-sm;
 }
 
 /* ICONS IN BUTTONS */

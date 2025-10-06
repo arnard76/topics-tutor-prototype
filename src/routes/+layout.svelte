@@ -1,4 +1,6 @@
 <script lang="ts">
+	import '../app.css';
+
 	import { initializeFirebase } from '$lib/database/firebase';
 	initializeFirebase();
 	let { children } = $props();
