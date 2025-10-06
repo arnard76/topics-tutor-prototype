@@ -1,18 +1,10 @@
-# sv
+# COMPSCI 705 HCI Prototype - Socratic Tutor UI
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This app can be accessed without installation through the [web app](https://topics-tutor-prototype.vercel.app/). The system requirements for this web app is desktop because it is not currently responsive (extended to work on multiple device types).
 
-## Creating a project
+## General Functionality
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
+The socratic tutor UI is friendly and in the background we are using a WoZ tool to actually reply to the students so we can evalutate the UI without making a Socratic AI model.
 
 ## Developing
 
@@ -24,15 +16,3 @@ npm run dev
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
 ```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
