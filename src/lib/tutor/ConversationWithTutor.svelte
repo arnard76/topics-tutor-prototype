@@ -30,7 +30,7 @@
 	});
 </script>
 
-<div class="flex h-full flex-col justify-end">
+<div class="flex h-full flex-col justify-end gap-2">
 	<Messages messages={$chronologicalMessages.filter((a) => a.from !== 'student-not-sent-yet')} />
 	<MultiInput bind:questionFromKeyboardInput={newMessage} onEnter={addNewMessage} />
 </div>

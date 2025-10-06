@@ -5,8 +5,11 @@
 </script>
 
 <div class="relative h-screen w-screen overflow-hidden">
-	<a href="/topics" class="right items-center rounded-br-2xl border-r-6 border-b-6">
-		<Icon icon="tabler:arrow-left" /> Topics
+	<a
+		href="/reading-material"
+		class="right no-translate m-4 flex items-center gap-2 rounded-xl border-2 text-nowrap"
+	>
+		<Icon icon="twemoji:open-book" style="font-size: 1.3em;" /> Continue reading
 	</a>
 
 	<ConversationWithTutor messages={$messages.filter((a) => a.from !== 'student-not-sent-yet')} />

@@ -69,7 +69,7 @@
 	}}
 />
 
-<div class="relative mx-auto mb-20 flex w-4/5 justify-end">
+<div class="relative mx-auto mb-24 flex w-4/5 justify-end">
 	<textarea
 		class="multi-input flex w-full justify-between rounded-4xl bg-blue-300 p-4 transition-all duration-300 {questionFromKeyboardInput
 			? 'min-h-0  text-lg'
@@ -109,15 +109,3 @@
 </div>
 
 <!-- <p>{error}</p> -->
-
-<style lang="postcss">
-	@reference '../app.css';
-
-	.hint {
-		@apply text-md flex items-center;
-	}
-
-	.hint :global(.iconify) {
-		@apply text-md w-6;
-	}
-</style>
