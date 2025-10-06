@@ -1,5 +1,7 @@
 import { EntityAPI } from '$lib/database/api';
 import { createEntityStores } from '$lib/database/store';
+import dayjs from 'dayjs';
+import { derived } from 'svelte/store';
 
 export type MessageType = {
 	datetime: string;
@@ -26,4 +28,8 @@ export const messagesApi = new EntityAPI<MessageType>('messages', 'id');
 export const { loading: messagesLoading, records: messages } = createEntityStores(
 	Message,
 	messagesApi
+);
+
+export const chronologicalMessages = derived(messages, ($messages) =>
+	$messages.sort((a, b) => (dayjs(a.datetime).isBefore(b.datetime) ? 1 : -1))
 );

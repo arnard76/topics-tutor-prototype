@@ -1,14 +1,10 @@
 <script lang="ts">
-	import { messagesApi, type MessageType as MessageType } from './message';
+	import { chronologicalMessages, messagesApi, type MessageType as MessageType } from './message';
 	import dayjs from 'dayjs';
 	import MultiInput from '$lib/MultiInput.svelte';
 	import Messages from './Messages.svelte';
 
 	let { messages = [] }: { messages: MessageType[] } = $props();
-
-	let chronologicalMessages = $derived(
-		messages.sort((a, b) => (dayjs(a.datetime).isBefore(b.datetime) ? -1 : 1))
-	);
 
 	function addNewMessage(message: string) {
 		console.log('adding new message');
@@ -35,6 +31,6 @@
 </script>
 
 <div class="flex h-full flex-col justify-end">
-	<Messages messages={chronologicalMessages} />
+	<Messages messages={$chronologicalMessages.filter((a) => a.from !== 'student-not-sent-yet')} />
 	<MultiInput bind:questionFromKeyboardInput={newMessage} onEnter={addNewMessage} />
 </div>

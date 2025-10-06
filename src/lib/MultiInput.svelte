@@ -69,26 +69,24 @@
 	}}
 />
 
-<div class="relative mx-auto mb-12 flex w-4/5 justify-end">
+<div class="relative mx-auto mb-20 flex w-4/5 justify-end">
 	<textarea
-		class="flex w-full justify-between bg-blue-300 p-4 transition-all duration-300 {questionFromKeyboardInput
-			? 'min-h-0 rounded-t-[100px] rounded-b-[100px]'
-			: 'min-h-64 rounded-t-3xl rounded-b-[0px]'}"
+		class="multi-input flex w-full justify-between rounded-4xl bg-blue-300 p-4 transition-all duration-300 {questionFromKeyboardInput
+			? 'min-h-0  text-lg'
+			: 'min-h-32  text-6xl'}"
 		bind:value={questionFromKeyboardInput}
 		bind:this={textInput}
 		disabled={readonly}
+		placeholder="Questions?"
 	></textarea>
+
 	{#if !questionFromKeyboardInput}
 		<div
 			transition:slide={{ duration: 350 }}
-			class="absolute inset-x-8 inset-y-4 flex justify-between"
+			class="pointer-events-none absolute inset-x-8 inset-y-4 flex justify-between"
 		>
 			<div>
-				<h2 class="text-hint-colour">Questions?</h2>
-
-				<div>
-					<!-- Suggestions -->
-				</div>
+				<!-- Suggestions -->
 			</div>
 
 			<div class="text-hint-colour">
@@ -116,10 +114,10 @@
 	@reference '../app.css';
 
 	.hint {
-		@apply flex text-2xl;
+		@apply text-md flex items-center;
 	}
 
 	.hint :global(.iconify) {
-		@apply w-12 text-4xl;
+		@apply text-md w-6;
 	}
 </style>

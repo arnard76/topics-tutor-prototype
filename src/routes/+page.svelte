@@ -1,5 +1,5 @@
 <script>
-	import MultiInput from '$lib/MultiInput.svelte';
-</script>
+	import { goto } from '$app/navigation';
 
-<MultiInput />
+	goto('/tutor');
+</script>
