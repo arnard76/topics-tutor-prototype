@@ -4,8 +4,6 @@
 	import MultiInput from '$lib/MultiInput.svelte';
 	import Messages from './Messages.svelte';
 
-	let { messages = [] }: { messages: MessageType[] } = $props();
-
 	function addNewMessage(message: string) {
 		console.log('adding new message');
 		messagesApi.add({
@@ -15,10 +13,6 @@
 		});
 	}
 	let newMessage = $state('');
-
-	$effect(() => {
-		console.log(messages);
-	});
 
 	$effect(() => {
 		messagesApi.updateFull({
@@ -31,6 +25,6 @@
 </script>
 
 <div class="flex h-full flex-col justify-end gap-2">
-	<Messages messages={$chronologicalMessages.filter((a) => a.from !== 'student-not-sent-yet')} />
+	<Messages messages={$chronologicalMessages} />
 	<MultiInput bind:questionFromKeyboardInput={newMessage} onEnter={addNewMessage} />
 </div>

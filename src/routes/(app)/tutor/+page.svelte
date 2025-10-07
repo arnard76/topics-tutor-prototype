@@ -12,5 +12,5 @@
 		<Icon icon="twemoji:open-book" style="font-size: 1.3em;" /> Continue reading
 	</a>
 
-	<ConversationWithTutor messages={$messages.filter((a) => a.from !== 'student-not-sent-yet')} />
+	<ConversationWithTutor />
 </div>

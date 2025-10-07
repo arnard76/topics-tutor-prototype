@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { chronologicalMessages, messagesApi, type MessageType as MessageType } from './message';
+	import { chronologicalMessages, messagesApi, studentDraftMessage } from './message';
 	import dayjs from 'dayjs';
 	import MultiInput from '$lib/MultiInput.svelte';
 	import Messages from './Messages.svelte';
-
-	let { messages = [] }: { messages: MessageType[] } = $props();
 
 	function addNewMessage(message: string) {
 		console.log('adding new message');
@@ -15,10 +13,6 @@
 		});
 	}
 	let socraticReplyDraft = $state('');
-
-	$effect(() => {
-		console.log(messages);
-	});
 </script>
 
 <div class="flex h-full flex-col justify-end">
@@ -40,8 +34,7 @@
 		</label>
 	</div>
 	<MultiInput
-		questionFromKeyboardInput={messages.find((a) => a.from === 'student-not-sent-yet')?.message ||
-			''}
+		questionFromKeyboardInput={$studentDraftMessage?.message || ''}
 		onEnter={() => {}}
 		readonly
 	/>

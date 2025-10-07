@@ -30,6 +30,12 @@ export const { loading: messagesLoading, records: messages } = createEntityStore
 	messagesApi
 );
 
+export const studentDraftMessage = derived(messages, ($messages) =>
+	$messages.find((m) => m.from === 'student-not-sent-yet')
+);
+
 export const chronologicalMessages = derived(messages, ($messages) =>
-	$messages.sort((a, b) => (dayjs(a.datetime).isBefore(b.datetime) ? 1 : -1))
+	$messages
+		.filter((m) => m.from !== 'student-not-sent-yet')
+		.sort((a, b) => (dayjs(a.datetime).isBefore(b.datetime) ? 1 : -1))
 );
