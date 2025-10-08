@@ -54,4 +54,9 @@ export class EntityAPI<Entity> {
 		const deleteRef = this.entityRef(`/${id}`);
 		if (deleteRef) firebase.remove(deleteRef);
 	}
+
+	deleteAll() {
+		const deleteRef = this.entityRef();
+		if (deleteRef) firebase.remove(deleteRef);
+	}
 }
