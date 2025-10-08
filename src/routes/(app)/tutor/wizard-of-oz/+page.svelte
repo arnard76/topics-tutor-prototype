@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { chunkProgress } from '$lib/reading/reading-material';
 	import ConversationWithStudent from '$lib/tutor/ConversationWithStudent.svelte';
 	import ExportConversationModal from '$lib/tutor/ExportConversationModal.svelte';
 	import { messages, messagesApi } from '$lib/tutor/message';
@@ -15,9 +16,8 @@
 </script>
 
 <div class="relative h-screen w-screen overflow-hidden">
-	<h2 class="text-white">WIZARD OF OZ MODE</h2>
-
-	<div class="flex items-center justify-between">
+	<div class="flex items-center justify-between bg-amber-600">
+		<h2 class="text-white">WIZARD OF OZ MODE</h2>
 		<button
 			class="text-nowrap"
 			onclick={() => {
@@ -38,8 +38,9 @@
 	</div>
 	{#if showConversation}<ExportConversationModal onclose={() => (showConversation = false)} />{/if}
 
-	<p class="absolute text-xl text-white">
+	<p class="absolute w-full bg-amber-600 pb-4 text-xl text-white">
 		you pretend to be a socratic tutor, reply with meaningful responses that help the student learn.
+		The student is currently on Paragraph {$chunkProgress + 1}
 	</p>
 	<ConversationWithStudent />
 </div>
