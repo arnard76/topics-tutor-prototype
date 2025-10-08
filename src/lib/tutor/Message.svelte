@@ -1,9 +1,11 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import type { MessageType } from './message';
+	import { page } from '$app/stores';
+	import CopyToClipboard from '$lib/components/CopyToClipboard.svelte';
 	let { message, children }: { message: MessageType; children?: Snippet<[]> } = $props();
 
-	let b = $derived(`${message.message}`);
+	let copyWithClick = $derived($page.url.href.includes('wizard-of-oz'));
 </script>
 
 <p
@@ -11,6 +13,10 @@
 		? 'mr-16 self-start rounded-bl-none bg-blue-400 font-mono'
 		: 'ml-16 self-end rounded-br-none bg-white'}"
 >
-	{message.message}
+	{#if copyWithClick && message.message}
+		<CopyToClipboard value={message.message} />
+	{:else}
+		{message.message}
+	{/if}
 	{@render children?.()}
 </p>

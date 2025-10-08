@@ -13,7 +13,8 @@
 		bind:success
 		{value}
 		placeholder="Copy to clipboard"
-		style="color: black; background-color: lightblue;"
+		class="text-nowrap"
+		style="color: black; background-color: lightblue; "
 	>
 		{#if success}
 			Copied ✅
