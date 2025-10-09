@@ -12,13 +12,15 @@
 		{/each}
 	</div>
 	<div class="flex justify-end gap-4">
-		<button
-			class="border-white text-nowrap"
-			onclick={() => {
-				chunkProgress.update((c) => c + 1);
-				goto('/reading-material#chunk-' + ($chunkProgress - 1));
-			}}>Read more</button
-		>
+		{#if $chunkProgress < $readingMaterialChunks.length - 1}
+			<button
+				class="border-white text-nowrap"
+				onclick={() => {
+					chunkProgress.update((c) => c + 1);
+					goto('/reading-material#chunk-' + ($chunkProgress - 1));
+				}}>Read more</button
+			>
+		{/if}
 		<a href="/tutor" class="border-white text-nowrap">Ask tutor</a>
 		<a class="border-white text-nowrap" href="/done">Finish reading</a>
 	</div>
