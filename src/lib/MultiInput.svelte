@@ -4,7 +4,7 @@
 	// @ts-ignore
 	import Artyom from 'artyom.js';
 
-	let { questionFromKeyboardInput = $bindable(''), onEnter, readonly = false } = $props();
+	let { questionFromKeyboardInput = $bindable(), onEnter, readonly = false } = $props();
 	let textInput = $state<HTMLTextAreaElement>();
 
 	$effect(() => {
@@ -59,7 +59,6 @@
 	onkeypresscapture={(e) => {
 		console.log(e.key);
 		if (questionFromKeyboardInput && e.key === 'Enter' && !readonly) {
-			console.log({ questionFromKeyboardInput });
 			onEnter(questionFromKeyboardInput);
 			questionFromKeyboardInput = '';
 		}

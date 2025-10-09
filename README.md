@@ -22,7 +22,7 @@ This page is to have a conversation with a Socratic tutor.
 
 ![](https://topics-tutor-prototype.vercel.app/phase2-tutoring.png)
 
-There is no actual tutor! Behind the scenes it is simply a research answering the questions because we are using the Wizard-of-Oz technique. This is so we can evaluate the UI without creating a Socratic AI model, resulting in faster feedback!
+There is no actual tutor! Behind the scenes it is simply a researcher answering the questions because we are using the Wizard-of-Oz technique. This is so we can evaluate the UI without creating a Socratic AI model, resulting in faster feedback!
 
 The WoZ researcher answering the questions does so through the WoZ page available at [`/tutor/wizard-of-oz`](https://topics-tutor-prototype.vercel.app/tutor/wizard-of-oz).
 
@@ -30,7 +30,7 @@ The WoZ researcher answering the questions does so through the WoZ page availabl
 
 This application was developed using [SvelteKit](https://svelte.dev/) and [Firebase](https://firebase.google.com/).
 
-Once you've cloneed the project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've cloned the project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```sh
 npm run dev

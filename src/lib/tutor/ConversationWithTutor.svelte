@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { chronologicalMessages, messagesApi, type MessageType as MessageType } from './message';
+	import { chronologicalMessages, messagesApi, studentDraftMessage } from './message';
 	import dayjs from 'dayjs';
 	import MultiInput from '$lib/MultiInput.svelte';
 	import Messages from './Messages.svelte';
@@ -12,14 +12,15 @@
 			message
 		});
 	}
-	let newMessage = $state('');
+	let newMessage = $derived($studentDraftMessage?.message);
 
 	$effect(() => {
+		if (newMessage === undefined) return;
 		messagesApi.updateFull({
 			id: 'current-input',
 			datetime: dayjs().toISOString(),
 			from: 'student-not-sent-yet',
-			message: newMessage
+			message: newMessage || ''
 		});
 	});
 </script>
