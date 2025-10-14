@@ -12,13 +12,15 @@
 			</div>
 		{/each}
 	</div>
-	<div class="flex justify-end gap-4">
+	<div
+		class="m-auto mb-4 flex w-min justify-start gap-3 overflow-hidden rounded-full border-2 border-gray-300"
+	>
 		{#if $chunkProgress < $readingMaterialChunks.length - 1}
 			<button
 				class="border-white text-nowrap"
 				onclick={() => {
 					chunkProgress.update((c) => c + 1);
-					goto('/reading-material#chunk-' + ($chunkProgress - 1));
+					goto('/reading-material#chunk-' + $chunkProgress);
 				}}>Read more</button
 			>
 		{/if}
@@ -30,6 +32,17 @@
 <style>
 	a,
 	button {
-		color: gray;
+		color: rgb(219, 219, 219);
+		border-width: 0;
+		background: transparent;
+		font-size: 12px;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		transition: 200ms ease all;
+	}
+
+	a:hover,
+	button:hover {
+		background-color: rgba(255, 255, 255, 0.2);
 	}
 </style>
